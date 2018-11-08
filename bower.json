@@ -1,5 +1,5 @@
 {
-  "name": "purescript-react-transition-group",
+  "name": "purescript-react-transition-group-2",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -9,7 +9,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/athanclark/purescript-react-transition-group.git"
+    "url": "git://github.com/athanclark/purescript-react-transition-group-2.git"
   },
   "dependencies": {
     "purescript-prelude": "^4.1.0",
