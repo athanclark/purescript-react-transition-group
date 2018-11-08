@@ -12,6 +12,7 @@ import Web.Event.EventTarget (EventTarget, EventListener)
 import Web.HTML.HTMLElement (HTMLElement)
 import Effect (Effect)
 import Effect.Uncurried (EffectFn2, mkEffectFn2, EffectFn1, mkEffectFn1)
+import Type.Row (type (+))
 import Row.Class (class SubRow)
 
 
@@ -43,7 +44,7 @@ exitEventHandler :: (HTMLElement -> Effect Unit) -> ExitEventHandler
 exitEventHandler = mkEffectFn1
 
 
-type TransitionProps =
+type TransitionProps r =
   ( in :: Boolean -- ^ Default: `false`
   , mountOnEnter :: Boolean -- ^ Default: `false`
   , unmountOnExit :: Boolean -- ^ Default: `false`
@@ -58,10 +59,10 @@ type TransitionProps =
   , onExit :: ExitEventHandler
   , onExiting :: ExitEventHandler
   , onExited :: ExitEventHandler
-  )
+  | r)
 
 
 transition :: forall o
-            . SubRow o TransitionProps
+            . SubRow o (TransitionProps + ())
            => { | o } -> Array ReactElement -> ReactElement
 transition = unsafeCreateElement transitionImpl

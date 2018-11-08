@@ -1,5 +1,5 @@
 "use strict";
 
-var Transition = require('react-transition-group/Transition').default;
+var Transition = require('react-transition-group').Transition;
 
 exports.transitionImpl = Transition;
